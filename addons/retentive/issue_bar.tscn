@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://co4vykufba85t"]
+
+[sub_resource type="Theme" id="Theme_gcbeu"]
+
+[node name="TextEdit" type="TextEdit"]
+process_mode = 3
+custom_minimum_size = Vector2(0, 38)
+size_flags_vertical = 2
+theme = SubResource("Theme_gcbeu")
+theme_override_colors/font_placeholder_color = Color(0.878548, 0.874464, 0.850421, 1)
+theme_override_colors/font_readonly_color = Color(0.790621, 0.582722, 0.0489449, 1)
+placeholder_text = "No formatting issues detected."
+editable = false
+selecting_enabled = false

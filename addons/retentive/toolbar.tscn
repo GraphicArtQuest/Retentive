@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://db6nmhprx1i1m"]
+
+[ext_resource type="PackedScene" uid="uid://co4vykufba85t" path="res://addons/retentive/issue_bar.tscn" id="2_dnm30"]
+
+[sub_resource type="Theme" id="Theme_i642e"]
+default_font_size = 16
+
+[node name="Toolbar" type="Control"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_i642e")
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Run"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="issue_container" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="issue_bar" parent="VBoxContainer/VBoxContainer/ScrollContainer/issue_container" instance=ExtResource("2_dnm30")]
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
